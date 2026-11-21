@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EL MAPA DE FUNES</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div id="hurt"></div>
+
+    <div id="topRight">
+      <div id="clock">09:00</div>
+      <div id="money">€250</div>
+      <div id="stars">
+        <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+      </div>
+      <div class="bar"><div id="hpFill"></div></div>
+      <div class="bar armor"><div id="arFill"></div></div>
+      <div id="weapon">Pistola</div>
+      <div id="carInfo"></div>
+    </div>
+
+    <div id="missionBox" class="hidden"></div>
+    <div id="zone">Funes</div>
+    <canvas id="minimap" width="190" height="190"></canvas>
+    <div id="msg"></div>
+    <div id="credit">EL MAPA DE FUNES · creado por Issa</div>
+  </div>
+
+  <!-- Menú principal -->
+  <div id="menu" class="overlay">
+    <div class="panel">
+      <div class="title">EL MAPA<br>DE FUNES</div>
+      <div class="subtitle">Simulador del pueblo de Funes (Navarra) · creado por <b>Issa</b></div>
+      <div class="controls">
+        <div><kbd>W A S D</kbd> mover / conducir</div>
+        <div><kbd>Shift</kbd> correr</div>
+        <div><kbd>Ratón</kbd> apuntar · <kbd>Clic</kbd> disparar</div>
+        <div><kbd>E</kbd> / <kbd>F</kbd> entrar o salir del coche</div>
+        <div><kbd>Espacio</kbd> freno de mano · <kbd>H</kbd> claxon</div>
+        <div><kbd>1</kbd>-<kbd>4</kbd> / <kbd>Q</kbd> / rueda: cambiar arma</div>
+        <div><kbd>M</kbd> mapa grande · <kbd>P</kbd> pausa · <kbd>N</kbd> sonido</div>
+      </div>
+      <button id="playBtn" disabled>Cargando mapa…</button>
+      <div class="hint">Haz encargos de reparto, consigue armas, roba coches… y cuidado con la Policía Local.</div>
+    </div>
+  </div>
+
+  <!-- Pausa -->
+  <div id="pause" class="overlay hidden">
+    <div class="panel small">
+      <div class="title small">PAUSA</div>
+      <button id="resumeBtn">Continuar</button>
+    </div>
+  </div>
+
+  <!-- Muerte -->
+  <div id="dead" class="overlay dead hidden">
+    <div class="deadText">HAS CAÍDO</div>
+    <div class="deadSub">Te llevan al Centro de Salud…</div>
+  </div>
+
+  <!-- Mapa grande -->
+  <div id="bigmapWrap" class="overlay hidden">
+    <div class="bigmapBox">
+      <canvas id="bigmap" width="900" height="720"></canvas>
+      <div class="bigmapCap">Mapa de Funes · pulsa <kbd>M</kbd> para cerrar</div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
